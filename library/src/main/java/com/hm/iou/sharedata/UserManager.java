@@ -194,4 +194,13 @@ public class UserManager {
         return false;
     }
 
+    /**
+     * 用户登出，清除token、登录状态、用户信息
+     *
+     * @return
+     */
+    public boolean logout() {
+        return mSpUser.edit().clear().commit();
+    }
+
 }
