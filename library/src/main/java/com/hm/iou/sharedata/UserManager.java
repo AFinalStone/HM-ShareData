@@ -64,6 +64,14 @@ public class UserManager {
         return new UserInfo();
     }
 
+    public String getUserId() {
+        return getUserInfo().getUserId();
+    }
+
+    public String getToken() {
+        return getUserInfo().getToken();
+    }
+
     /**
      * 保存或者更新用户信息
      *
@@ -200,6 +208,7 @@ public class UserManager {
      * @return
      */
     public boolean logout() {
+        mUserInfo = null;
         return mSpUser.edit().clear().commit();
     }
 
