@@ -8,8 +8,14 @@ package com.hm.iou.sharedata.model;
 public class BaseResponse<T> {
 
     private boolean success;
+
     private int errorCode;
     private String message;
+
+    //兼容处理，老的叫errorCode，新的叫retCode
+    private int retCode = -1;
+    private String retMsg;
+
     private T data;
 
     public boolean isSuccess() {
@@ -21,6 +27,9 @@ public class BaseResponse<T> {
     }
 
     public int getErrorCode() {
+        if (retCode != -1) {
+            return retCode;
+        }
         return errorCode;
     }
 
@@ -29,6 +38,9 @@ public class BaseResponse<T> {
     }
 
     public String getMessage() {
+        if (retCode != -1) {
+            return retMsg;
+        }
         return message;
     }
 
