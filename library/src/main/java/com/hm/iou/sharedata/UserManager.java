@@ -147,7 +147,7 @@ public class UserManager {
      * @param sex 性别
      * @return
      */
-    public boolean updateSex(String sex) {
+    public boolean updateSex(int sex) {
         UserInfo userInfo = getUserInfo();
         userInfo.setSex(sex);
         return updateOrSaveUserInfo(userInfo);
@@ -159,7 +159,7 @@ public class UserManager {
      * @param mainIncome 主要收入
      * @return
      */
-    public boolean updateMainIncome(String mainIncome) {
+    public boolean updateMainIncome(int mainIncome) {
         UserInfo userInfo = getUserInfo();
         userInfo.setMainIncome(mainIncome);
         return updateOrSaveUserInfo(userInfo);
@@ -171,7 +171,7 @@ public class UserManager {
      * @param secondIncome 次要收入
      * @return
      */
-    public boolean updateSecondIncome(String secondIncome) {
+    public boolean updateSecondIncome(int secondIncome) {
         UserInfo userInfo = getUserInfo();
         userInfo.setSecondIncome(secondIncome);
         return updateOrSaveUserInfo(userInfo);

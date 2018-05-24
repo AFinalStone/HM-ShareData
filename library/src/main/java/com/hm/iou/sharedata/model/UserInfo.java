@@ -12,15 +12,15 @@ public class UserInfo {
     private String nickName;
     private String avatarUrl;
     private String mobile;
-    private String type;
-    private String sex;
+    private int type;
+    private int sex;
     private String name;
     private String mailAddr;
     private String idCardNum;
     private String status;
     private String location;
-    private String mainIncome;
-    private String secondIncome;
+    private int mainIncome;
+    private int secondIncome;
 
     public String getUserId() {
         return userId;
@@ -70,22 +70,6 @@ public class UserInfo {
         this.mobile = mobile;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
     public String getName() {
         return name;
     }
@@ -126,19 +110,35 @@ public class UserInfo {
         this.location = location;
     }
 
-    public String getMainIncome() {
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public int getMainIncome() {
         return mainIncome;
     }
 
-    public void setMainIncome(String mainIncome) {
+    public void setMainIncome(int mainIncome) {
         this.mainIncome = mainIncome;
     }
 
-    public String getSecondIncome() {
+    public int getSecondIncome() {
         return secondIncome;
     }
 
-    public void setSecondIncome(String secondIncome) {
+    public void setSecondIncome(int secondIncome) {
         this.secondIncome = secondIncome;
     }
 }
