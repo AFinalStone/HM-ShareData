@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
+import com.hm.iou.sharedata.model.UserExtendInfo;
 import com.hm.iou.sharedata.model.UserInfo;
 
 /**
@@ -18,6 +19,7 @@ public class UserManager {
     //存放用户信息的SharedPreferences文件名
     private static final String SP_USER_FILE_NAME = "heima_user";
     private static final String KEY_USER_INFO = "user_info";
+    private static final String KEY_USER_EXTEND_INFO = "user_extend_info";
 
     public static UserManager getInstance(Context context) {
         if (INSTANCE == null) {
@@ -34,6 +36,7 @@ public class UserManager {
     private Context mContext;
     private SharedPreferences mSpUser;      //存放用户相关信息
     private UserInfo mUserInfo;             //用户信息
+    private UserExtendInfo mUserExtendInfo; //用户额外信息
 
     private UserManager(Context context) {
         mContext = context.getApplicationContext();
@@ -64,6 +67,30 @@ public class UserManager {
         return new UserInfo();
     }
 
+    /**
+     * 获取用户的额外信息，如果读取不到会返回一个空的UserInfo对象
+     *
+     * @return
+     */
+    public UserExtendInfo getUserExtendInfo() {
+        //优先返回缓存里的用户额外信息
+        if (mUserExtendInfo != null && mUserInfo != null && !TextUtils.isEmpty(mUserInfo.getUserId())) {
+            return mUserExtendInfo;
+        }
+        //从文件里读取用户信息
+        String userExtendStr = mSpUser.getString(KEY_USER_EXTEND_INFO, null);
+        if (TextUtils.isEmpty(userExtendStr)) {
+            return new UserExtendInfo();
+        }
+        try {
+            mUserExtendInfo = new Gson().fromJson(userExtendStr, UserExtendInfo.class);
+            return mUserExtendInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new UserExtendInfo();
+    }
+
     public String getUserId() {
         return getUserInfo().getUserId();
     }
@@ -91,6 +118,27 @@ public class UserManager {
             mUserInfo = userInfo;
         }
         return r;
+    }
+
+    /**
+     * 保存或者更新用户额外信息
+     *
+     * @param userExtendInfo
+     * @return
+     */
+    public boolean updateOrSaveUserExtendInfo(UserExtendInfo userExtendInfo) {
+        if (userExtendInfo == null) {
+            mSpUser.edit().putString(KEY_USER_EXTEND_INFO, "").commit();
+            mUserExtendInfo = null;
+            return true;
+        }
+        String json = new Gson().toJson(userExtendInfo);
+        boolean flag = mSpUser.edit().putString(KEY_USER_EXTEND_INFO, json).commit();
+        if (flag) {
+            //如果用户信息更新过了，刷新缓存
+            mUserExtendInfo = userExtendInfo;
+        }
+        return flag;
     }
 
     /**
@@ -209,6 +257,7 @@ public class UserManager {
      */
     public boolean logout() {
         mUserInfo = null;
+        mUserExtendInfo = null;
         return mSpUser.edit().clear().commit();
     }
 

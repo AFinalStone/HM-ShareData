@@ -141,4 +141,5 @@ public class UserInfo {
     public void setSecondIncome(int secondIncome) {
         this.secondIncome = secondIncome;
     }
+
 }
