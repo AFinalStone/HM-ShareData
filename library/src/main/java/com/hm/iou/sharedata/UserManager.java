@@ -261,5 +261,14 @@ public class UserManager {
         return mSpUser.edit().clear().commit();
     }
 
+    /**
+     * 是否实名
+     *
+     * @return
+     */
+    public boolean isRealName() {
+        UserInfo userInfo = getUserInfo();
+        return userInfo.getType() >= 3;
+    }
 
 }
