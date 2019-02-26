@@ -13,7 +13,8 @@ public enum IOUKindEnum implements Serializable {
     PlatformReceipt(5),
     PaperBorrowerReceipt(7),
     PaperReceiveReceipt(8),
-    ElecReceiveReceipt(9);
+    ElecReceiveReceipt(9),
+    EelecBorrowV2_0(11);
 
     int value;
 
