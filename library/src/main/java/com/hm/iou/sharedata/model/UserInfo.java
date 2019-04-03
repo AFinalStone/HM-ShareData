@@ -22,6 +22,9 @@ public class UserInfo {
     private int mainIncome;
     private int secondIncome;
 
+    private String alipayAccount;
+    private int memType;          //  100=普通用户，110=会员用户
+
     public String getUserId() {
         return userId;
     }
@@ -142,4 +145,19 @@ public class UserInfo {
         this.secondIncome = secondIncome;
     }
 
+    public int getMemType() {
+        return memType;
+    }
+
+    public void setMemType(int memType) {
+        this.memType = memType;
+    }
+
+    public String getAlipayAccount() {
+        return alipayAccount;
+    }
+
+    public void setAlipayAccount(String alipayAccount) {
+        this.alipayAccount = alipayAccount;
+    }
 }
