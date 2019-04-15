@@ -8,6 +8,7 @@ public class UserInfo {
 
     private String userId;
     private String token;
+    private String imToken;//及时通讯需要的token
     private String showId;
     private String nickName;
     private String avatarUrl;
@@ -159,5 +160,13 @@ public class UserInfo {
 
     public void setAlipayAccount(String alipayAccount) {
         this.alipayAccount = alipayAccount;
+    }
+
+    public String getImToken() {
+        return imToken;
+    }
+
+    public void setImToken(String imToken) {
+        this.imToken = imToken;
     }
 }
