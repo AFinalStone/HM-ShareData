@@ -8,6 +8,7 @@ public class UserInfo {
 
     private String userId;
     private String token;
+    private String imAccId;//及时通讯需要的id
     private String imToken;//及时通讯需要的token
     private String showId;
     private String nickName;
@@ -168,5 +169,13 @@ public class UserInfo {
 
     public void setImToken(String imToken) {
         this.imToken = imToken;
+    }
+
+    public String getImAccId() {
+        return imAccId;
+    }
+
+    public void setImAccId(String imAccId) {
+        this.imAccId = imAccId;
     }
 }
