@@ -238,6 +238,43 @@ public class UserManager {
     }
 
     /**
+     * 更新ImId
+     *
+     * @param imId
+     * @return
+     */
+    public boolean updateIMId(String imId) {
+        UserInfo userInfo = getUserInfo();
+        userInfo.setImAccId(imId);
+        return updateOrSaveUserInfo(userInfo);
+    }
+
+    /**
+     * 更新ImToken
+     *
+     * @param imToken
+     * @return
+     */
+    public boolean updateIMToken(String imToken) {
+        UserInfo userInfo = getUserInfo();
+        userInfo.setImToken(imToken);
+        return updateOrSaveUserInfo(userInfo);
+    }
+
+    /**
+     * 判断用户是否已登录IM
+     *
+     * @return
+     */
+    public boolean isLoginIM() {
+        UserInfo userInfo = getUserInfo();
+        if (userInfo != null && !TextUtils.isEmpty(userInfo.getImAccId()) && !TextUtils.isEmpty(userInfo.getImToken())) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 判断用户是否已登录
      *
      * @return
