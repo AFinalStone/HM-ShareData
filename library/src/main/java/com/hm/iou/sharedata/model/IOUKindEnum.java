@@ -14,7 +14,10 @@ public enum IOUKindEnum implements Serializable {
     PaperBorrowerReceipt(7),
     PaperReceiveReceipt(8),
     ElecReceiveReceipt(9),
-    EelecBorrowV2_0(11);
+    EelecBorrowV2_0(11),
+    FdContract(12),             //房贷合同
+    FzContract(13),             //房租合同
+    CreditCard(14);             //银行卡债务
 
     int value;
 
