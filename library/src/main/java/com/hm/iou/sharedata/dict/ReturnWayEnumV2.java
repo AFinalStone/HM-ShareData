@@ -6,7 +6,8 @@ public enum ReturnWayEnumV2 {
     TwoMonth("m2", "二月一付"),
     ThreeMonth("m3", "三月一付"),
     SixMonth("m6", "六月一付"),
-    Year("y1", "一年一付");
+    Year("y1", "一年一付"),
+    Full("1", "到期归还");
 
     private String type;
     private String name;
@@ -35,7 +36,10 @@ public enum ReturnWayEnumV2 {
             return SixMonth;
         } else if (Year.getType().equals(type)) {
             return Year;
+        } else if (Full.getType().equals(type)) {
+            return Full;
         }
         return OneMonth;
     }
+
 }
