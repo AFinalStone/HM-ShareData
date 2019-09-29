@@ -1,6 +1,8 @@
 package com.hm.iou.sharedata.dict;
 
-public enum OverdueRateEnum {
+import java.io.Serializable;
+
+public enum OverdueRateEnum implements Serializable {
 
     Default(0, "按国家规定（6.5）", "按国家规定万6.5"),
     Nine(9, "万分之9", "未还金额的万9"),
