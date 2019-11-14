@@ -20,6 +20,7 @@ public class UserManager {
     private static final String SP_USER_FILE_NAME = "heima_user";
     private static final String KEY_USER_INFO = "user_info";
     private static final String KEY_USER_EXTEND_INFO = "user_extend_info";
+    private static final String KEY_IS_AUTH_LAWYER = "lawyer";
 
     public static UserManager getInstance(Context context) {
         if (INSTANCE == null) {
@@ -306,6 +307,14 @@ public class UserManager {
     public boolean isRealName() {
         UserInfo userInfo = getUserInfo();
         return userInfo.getType() >= 3;
+    }
+
+    public boolean isAuthLawyer() {
+        return mSpUser.getBoolean(KEY_IS_AUTH_LAWYER, false);
+    }
+
+    public void setAuthLawyer(boolean isAuthLawyer) {
+        mSpUser.edit().putBoolean(KEY_IS_AUTH_LAWYER, isAuthLawyer);
     }
 
 }
