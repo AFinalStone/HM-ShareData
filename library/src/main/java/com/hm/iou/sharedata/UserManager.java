@@ -314,7 +314,7 @@ public class UserManager {
     }
 
     public void setAuthLawyer(boolean isAuthLawyer) {
-        mSpUser.edit().putBoolean(KEY_IS_AUTH_LAWYER, isAuthLawyer);
+        mSpUser.edit().putBoolean(KEY_IS_AUTH_LAWYER, isAuthLawyer).commit();
     }
 
 }
