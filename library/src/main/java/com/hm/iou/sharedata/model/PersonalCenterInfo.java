@@ -22,6 +22,7 @@ public class PersonalCenterInfo {
     private MailInfoRespBean mailInfoResp;
     private SignRespBean signResp;
     private UserNameInfoRespBean userNameInfoResp;
+    private boolean lawyer;
 
     public AlipayInfoRespBean getAlipayInfoResp() {
         return alipayInfoResp;
@@ -61,6 +62,14 @@ public class PersonalCenterInfo {
 
     public void setUserNameInfoResp(UserNameInfoRespBean userNameInfoResp) {
         this.userNameInfoResp = userNameInfoResp;
+    }
+
+    public boolean isLawyer() {
+        return lawyer;
+    }
+
+    public void setLawyer(boolean lawyer) {
+        this.lawyer = lawyer;
     }
 
     public static class AlipayInfoRespBean {
